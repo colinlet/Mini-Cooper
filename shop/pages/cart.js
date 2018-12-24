@@ -1,12 +1,13 @@
 // pages/cart.js
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      cartList: [],
-      cart_number: 0,
+      app: app.globalData,
   },
   goMall: function(){
     wx.switchTab({
@@ -32,24 +33,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-      //初始化购物车信息
-      try{
-          const jsonStr = wx.getStorageSync('cart-list');
-          if (!jsonStr) return true;
-          this.setData({
-              cartList: JSON.parse(jsonStr),
-          });
-      }catch(e){
-          console.log(e.toString());
-          return false;
-      }
-      let cartNum = 0;
-      this.data.cartList.forEach(function(item){
-          cartNum += item.number;
-      });
-      this.setData({
-          cart_number: cartNum,
-      });
+    this.setData({
+        app: app.globalData
+    })
   },
 
   /**

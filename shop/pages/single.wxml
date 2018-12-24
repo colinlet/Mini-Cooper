@@ -38,7 +38,7 @@
             src="../static/img/cart_01.png"
             style="width:40px;height:40px;padding:5px 0;"
         />
-        <view wx:if="{{cart_number > 0}}" class="number">{{cart_number}}</view>
+        <view wx:if="{{app.cartNum > 0}}" class="number">{{app.cartNum}}</view>
     </view>
     <view style="float:left;" class="s" bindtap="addCart">加入购物车</view>
     <view style="float:left;" class="t" bindtap="buy">立即购买</view>

@@ -1,10 +1,13 @@
 // pages/single.js
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    app: app.globalData,
     indicatorDots: true,
     autoplay: false,
     interval: 5000,
@@ -35,8 +38,6 @@ Page({
         'http://192.168.0.105/wechat/goods_009.png',
         'http://192.168.0.105/wechat/goods_010.png',
     ],
-    cartList: [],
-    cart_number: 0,
     images: []
   },
   imageLoad: function(e){
@@ -61,10 +62,10 @@ Page({
   addCart: function(){
     let _this = this;
     let newItem = true;
-    this.data.cartList.forEach(function(item, index){
+    app.globalData.cartList.forEach(function(item, index){
         if (item.id == _this.data.id){
             newItem = false;
-            _this.data.cartList[index].number++;
+            app.globalData.cartList[index].number++;
         }
     });
     if (newItem){
@@ -77,10 +78,10 @@ Page({
             img: this.data.showcase[0],
             number: 1,
         };
-        this.data.cartList.push(goodsItem);
+        app.globalData.cartList.push(goodsItem);
     }
     try{
-        wx.setStorageSync('cart-list', JSON.stringify(_this.data.cartList));
+        wx.setStorageSync('cart-list', JSON.stringify(app.globalData.cartList));
     }catch(e){
         console.log(e.toString());
         return false;
@@ -89,8 +90,9 @@ Page({
         title: '成功加入购物车',
         duration: 2000
     });
+    app.globalData.cartNum++;
     this.setData({
-        cart_number: _this.data.cart_number+1,
+        app: app.globalData,
     });
   },
   buy: function(){
@@ -108,24 +110,6 @@ Page({
   onLoad: function (options) {
     this.setData({
         id: options.id,
-    });
-    //初始化购物车信息
-    try{
-        const jsonStr = wx.getStorageSync('cart-list');
-        if (!jsonStr) return true;
-        this.setData({
-            cartList: JSON.parse(jsonStr),
-        });
-    }catch(e){
-        console.log(e.toString());
-        return false;
-    }
-    let cartNum = 0;
-    this.data.cartList.forEach(function(item){
-        cartNum += item.number;
-    });
-    this.setData({
-        cart_number: cartNum,
     });
   },
 
