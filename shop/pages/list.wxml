@@ -1,0 +1,18 @@
+<!--商品列表-->
+<view class="list">
+    <view wx:for="{{goodsList}}" wx:key="">
+        <view class="item" bindtap="openThis" data-id="{{item.id}}">
+            <view>
+                <image
+                src="{{item.img}}"
+                style="width:100%"
+                />
+            </view>
+            <view class="text">
+                <view class="t">{{item.name}}</view>
+                <view class="d">{{item.desc}}</view>
+                <view class="p">¥{{item.price}} <b class="o">¥{{item.origin_price}}</b></view>
+            </view>
+        </view>
+    </view>
+</view>

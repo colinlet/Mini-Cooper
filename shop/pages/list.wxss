@@ -1,0 +1,20 @@
+/* pages/list.wxss */
+.item {
+    width: 50%;
+    float: left;
+    background-color: #ffffff;
+}
+.item > .text{
+    padding: 5px 10px;
+    font-size: 14px;
+}
+.item .d{
+    color: #c1c1c1;
+}
+.item .p{
+    color: #ff6600;
+}
+.item .o{
+    color: #c1c1c1;
+    text-decoration: line-through;
+}

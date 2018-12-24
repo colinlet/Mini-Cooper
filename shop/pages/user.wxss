@@ -1,0 +1,29 @@
+/* pages/user.wxss */
+page{
+    background-color: #ebebeb;
+}
+.user{
+    background-color: #ffffff;
+    margin-top: 10px;
+    padding: 10px 15px;
+    height: 60px;
+}
+.user > .info{
+    padding: 8px 0 0 15px;
+}
+.list{
+    background-color: #ffffff;
+    margin-top: 10px;
+}
+.list > .item{
+    border-bottom: 1px solid #ebebeb;
+    padding-left: 20px;
+    height: 45px;
+}
+.list > .item image{
+    padding-top: 10px;
+}
+.list > .item > .t{
+    line-height: 45px;
+    padding-left: 10px;
+}

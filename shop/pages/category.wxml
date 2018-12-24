@@ -1,0 +1,41 @@
+<!--分类-->
+<view style="float:left;">
+    <scroll-view
+        scroll-y
+        scroll-with-animation
+        class="scroll-left"
+        style="height: 100vh"
+    >
+        <view wx:for="{{ menu }}" wx:key="index" data-active="{{activeIndex}}">
+            <view
+                class="nav-item {{index==activeIndex?'nav-active':''}}"
+                bindtap="tapItem"
+                data-id="{{item.id}}"
+            >{{ item.name }}</view>
+        </view>
+    </scroll-view>
+</view>
+<view style="float:left">
+    <scroll-view
+            scroll-y
+            scroll-with-animation
+            class="scroll-right"
+            style="height: 100vh"
+        >
+        <view class="subnav-title"><span>—</span> {{menu[activeIndex].name}} <span>—</span></view>
+        <view wx:for="{{ submenu }}" wx:key="index">
+            <view
+                class="subnav-item"
+                bindtap="openThis"
+                data-item_id="{{item.item_id}}"
+                data-name="{{item.name}}"
+            >
+                <image
+                    src="{{item.img}}"
+                    style="width:100%;height:60px;"
+                />
+                <view style="text-align:center;">{{item.name}}</view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

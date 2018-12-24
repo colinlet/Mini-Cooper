@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/home",
+    "pages/category",
+    "pages/cart",
+    "pages/user",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/single",
+    "pages/list"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff6700",
+    "navigationBarTitleText": "迷你淘",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#727272",
+    "selectedColor": "#ff6600",
+    "list": [
+      {
+        "pagePath": "pages/home",
+        "text": "首页",
+        "iconPath": "/static/img/home_01.png",
+        "selectedIconPath": "/static/img/home_02.png"
+      },
+      {
+        "pagePath": "pages/category",
+        "text": "分类",
+        "iconPath": "/static/img/category_01.png",
+        "selectedIconPath": "/static/img/category_02.png"
+      },
+      {
+        "pagePath": "pages/cart",
+        "text": "购物车",
+        "iconPath": "/static/img/cart_01.png",
+        "selectedIconPath": "/static/img/cart_02.png"
+      },
+      {
+        "pagePath": "pages/user",
+        "text": "我的",
+        "iconPath": "/static/img/user_01.png",
+        "selectedIconPath": "/static/img/user_02.png"
+      }
+    ]
+  }
+}

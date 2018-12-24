@@ -1,0 +1,39 @@
+<!--首页-->
+<swiper
+    indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}"
+    interval="{{interval}}"
+    duration="{{duration}}"
+    style="width:100%;height:{{imageHeight}}px"
+>
+  <block wx:for="{{slideshow}}" wx:key="">
+    <swiper-item bindtap="openThis" data-id="{{item.id}}">
+        <image
+            src="{{item.img}}"
+            model="aspectFit"
+            style="width:100%;height:{{imageHeight}}px"
+            bindload="imageLoad"
+        />
+    </swiper-item>
+  </block>
+</swiper>
+<view class="day">
+    <view class="title">每日精选</view>
+    <view class="list">
+        <view wx:for="{{goodsList}}" wx:key="">
+            <view class="item" bindtap="openThis" data-id="{{item.id}}">
+                <view>
+                    <image
+                    src="{{item.img}}"
+                    style="width:100%"
+                    />
+                </view>
+                <view class="text">
+                    <view class="t">{{item.name}}</view>
+                    <view class="d">{{item.desc}}</view>
+                    <view class="p">¥{{item.price}} <b class="o">¥{{item.origin_price}}</b></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

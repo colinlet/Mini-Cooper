@@ -1,0 +1,39 @@
+/* pages/category.wxss */
+.scroll-left{
+    width: 160rpx;
+    position: fixed;
+    left: 0;
+    top: 0;
+    border-right: 1px solid #efefef;
+}
+.scroll-right{
+    width: 590rpx;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+.nav-item{
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 45px;
+}
+.nav-active{
+    color: #ff6600;
+}
+.subnav-title{
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 35px;
+    padding-top: 15px;
+}
+.subnav-title > span{
+    color: #ccc;
+}
+.subnav-item{
+    width: 22%;
+    height: 60px;
+    float: left;
+    margin: 5%;
+}

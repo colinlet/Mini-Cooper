@@ -1,0 +1,34 @@
+/* pages/home.wxss */
+page{
+    background-color: #ececec;
+}
+.day{
+    width: 100%;
+}
+.day > .title{
+    margin-top: 10px;
+    padding-left: 10px;
+    line-height: 35px;
+    color: #5a5a5a;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+}
+.item {
+    width: 50%;
+    float: left;
+    background-color: #ffffff;
+}
+.item > .text{
+    padding: 5px 10px;
+    font-size: 14px;
+}
+.item .d{
+    color: #c1c1c1;
+}
+.item .p{
+    color: #ff6600;
+}
+.item .o{
+    color: #c1c1c1;
+    text-decoration: line-through;
+}

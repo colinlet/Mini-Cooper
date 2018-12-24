@@ -1,0 +1,23 @@
+/* pages/cart.wxss */
+page{
+    background-color: #ebebeb;
+}
+.empty{
+    margin-top: 50px;
+}
+.img{
+    width: 80px;
+    margin: 0 auto;
+}
+.text{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 10px;
+}
+.btn{
+    background-color: #ff6801;
+    color: #ffffff;
+    margin-top: 10px;
+    width: 80%;
+}
