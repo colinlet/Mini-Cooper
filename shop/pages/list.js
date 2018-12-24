@@ -63,6 +63,11 @@ Page({
           'img': 'http://192.168.0.105/wechat/goods_008.jpg',
       },],
   },
+  openThis: function(e){
+    wx.navigateTo({
+        url: '/pages/single?id='+e.currentTarget.dataset.id,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

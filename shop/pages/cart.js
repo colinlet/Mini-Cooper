@@ -8,6 +8,7 @@ Page({
    */
   data: {
       app: app.globalData,
+      p: 5600
   },
   goMall: function(){
     wx.switchTab({
@@ -36,6 +37,7 @@ Page({
     this.setData({
         app: app.globalData
     })
+    console.log(app.globalData.cartList);
   },
 
   /**
