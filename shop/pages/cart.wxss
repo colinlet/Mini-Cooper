@@ -22,34 +22,66 @@ page{
     width: 80%;
 }
 .list{
-    margin-top: 10px;
-    margin-bottom: 50px;
+    margin-top: 2vh;
 }
-.list > .item{
-    width: 100%;
+.item{
+    width: 690rpx;
     height: 40px;
     background-color: #ffffff;
     border-bottom: 1px solid #ebebeb;
-    padding: 20px;
+    padding: 10px 30rpx;
 }
-.list > .item > .img{
+.item > .icon{
+    width: 10%;
+    height: 40px;
+    padding-top: 7px;
+}
+.item > .img{
+    padding-top: 5px;
+    margin-left: 10px;
+}
+.item > .name{
     margin-left: 5px;
+    line-height: 40px;
+    height: 40px;
+    width: 350rpx;
+    text-align: left;
+    overflow: hidden;
 }
-.list > .item > .name{
-    margin-left: 5px;
-}
-.list > .item > .price{
+.item > .price{
     color: #989898;
-    margin-left: 20px;
+    line-height: 40px;
 }
-.list > .item > .price > span{
+.item > .price > span{
     color: #ff6600;
 }
 .buy{
     width: 100%;
-    height: 50px;
+    height: 10vh;
     background-color: #ffffff;
     position: fixed;
     left: 0;
     bottom: 0;
+    padding: 0 30rpx;
+}
+.buy > .icon{
+    width: 10%;
+    line-height: 10vh;
+    padding-top: 5px;
+}
+.buy > .text{
+    line-height: 10vh;
+    margin-left: -5px;
+}
+.buy > .sum{
+    line-height: 10vh;
+    width: 250rpx;
+    text-align: center;
+}
+.buy > .total{
+    background-color: #cccccc;
+    color: #ffffff;
+    line-height: 10vh;
+    width: 250rpx;
+    text-align: center;
 }

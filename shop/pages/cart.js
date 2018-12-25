@@ -8,12 +8,42 @@ Page({
    */
   data: {
       app: app.globalData,
-      p: 5600
+      selectStatus: 1,
+      sum: 0,
+      total: 0,
   },
   goMall: function(){
     wx.switchTab({
       url: '/pages/home',
     })
+  },
+  selectAll: function(e){
+    let appData = this.data.app;
+    let sum = 0;
+    appData.cartList.forEach(function(item){
+      item.selectStatus = item.selectStatus == '../static/img/cart_goods_01.png' ? '../static/img/cart_goods_02.png' : '../static/img/cart_goods_01.png';
+      sum += (item.number * item.price);
+    });
+    this.setData({
+      app: appData,
+      selectStatus: this.data.selectStatus == 1 ? 2 : 1,
+      sum: this.data.selectStatus == 1 ? sum : 0,
+      total: this.data.selectStatus == 1 ? appData.cartList.length : 0,
+    });
+  },
+  selectThis: function(e){
+    let appData = this.data.app;
+    let selectAll = 2;
+    appData.cartList.forEach(function(item){
+      if (e.currentTarget.dataset.id == item.id){
+        item.selectStatus = item.selectStatus == '../static/img/cart_goods_01.png' ? '../static/img/cart_goods_02.png' : '../static/img/cart_goods_01.png';
+      }
+      if (item.selectStatus == '../static/img/cart_goods_01.png') selectAll = 1;
+    });
+    this.setData({
+       app: appData,
+       selectStatus: selectAll,
+    });
   },
 
   /**
@@ -34,10 +64,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let appData = app.globalData;
+    appData.cartList.forEach(function(item){
+      item.selectStatus = '../static/img/cart_goods_01.png';
+    });
     this.setData({
-        app: app.globalData
-    })
-    console.log(app.globalData.cartList);
+      app: appData
+    });
   },
 
   /**

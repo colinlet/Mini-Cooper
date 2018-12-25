@@ -8,22 +8,29 @@
         <button class="btn" bindtap="goMall">到商城逛逛</button>
     </view>
 </view>
-<view class="list" wx-if="{{app.cartNum >= 1}}">
+<scroll-view
+    scroll-y
+    scroll-with-animation
+    class="list"
+    style="height: 88vh;"
+    wx-if="{{app.cartNum >= 1}}"
+>
     <view wx:for="{{app.cartList}}" wx:key=""  class="item">
-        <view style="float:left" class="radio">
-            <radio value="" checked="" />
+        <view style="float:left" class="icon" bindtap="selectThis" data-id="{{item.id}}">
+            <image src="{{item.selectStatus}}" style="width:26px;height:26px;" />
         </view>
         <view style="float:left" class="img">
-            <image src="{{item.img}}" style="width:40px;height:40px;" />
+            <image src="{{item.img}}" style="width:30px;height:30px;" />
         </view>
         <view style="float:left" class="name">{{item.name}}</view>
-        <view style="float:left" class="price"><span>¥{{item.price}}</span> x {{item.number}}</view>
+        <view style="float:right" class="price"><span>¥{{item.price}}</span> x {{item.number}}</view>
     </view>
-</view>
+</scroll-view>
 <view class="buy"  wx-if="{{app.cartNum >= 1}}">
-    <view style="float:left">
-        <radio value="" checked="" />
+    <view style="float:left" class="icon" bindtap="selectAll">
+        <image src="../static/img/cart_goods_0{{selectStatus}}.png" style="width:26px;height:26px;" />
     </view>
-    <view style="float:left">合计：¥0</view>
-    <view style="float:left">结算（0）</view>
+    <view style="float:left" class="text">全选</view>
+    <view style="float:right" class="total">结算({{total}})</view>
+    <view style="float:right" class="sum">合计:¥{{sum}}</view>
 </view>
