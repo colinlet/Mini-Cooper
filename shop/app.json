@@ -7,7 +7,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/single",
-    "pages/list"
+    "pages/list",
+    "pages/balance"
   ],
   "window": {
     "backgroundTextStyle": "light",

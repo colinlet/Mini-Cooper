@@ -17,7 +17,7 @@
 >
     <view wx:for="{{app.cartList}}" wx:key=""  class="item">
         <view style="float:left" class="icon" bindtap="selectThis" data-id="{{item.id}}">
-            <image src="{{item.selectStatus}}" style="width:26px;height:26px;" />
+            <image src="{{item.selectStatus}}" style="width:18px;height:18px;" />
         </view>
         <view style="float:left" class="img">
             <image src="{{item.img}}" style="width:30px;height:30px;" />
@@ -28,9 +28,19 @@
 </scroll-view>
 <view class="buy"  wx-if="{{app.cartNum >= 1}}">
     <view style="float:left" class="icon" bindtap="selectAll">
-        <image src="../static/img/cart_goods_0{{selectStatus}}.png" style="width:26px;height:26px;" />
+        <image
+            src="../static/img/cart_goods_0{{selectStatus}}.png"
+            style="width:18px;height:18px;"
+        />
     </view>
     <view style="float:left" class="text">全选</view>
-    <view style="float:right" class="total">结算({{total}})</view>
-    <view style="float:right" class="sum">合计:¥{{sum}}</view>
+    <view
+        style="float:right"
+        class="total {{active?'active':''}}"
+        bindtap="payThis"
+    >结算({{total}})</view>
+    <view
+        style="float:right"
+        class="sum"
+    >合计:<span class="{{active?'active':''}}">¥{{sum}}</span></view>
 </view>

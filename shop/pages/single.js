@@ -77,6 +77,7 @@ Page({
             origin_price: this.data.origin_price,
             img: this.data.showcase[0],
             number: 1,
+            selectStatus: '',
         };
         app.globalData.cartList.push(goodsItem);
     }
