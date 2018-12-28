@@ -16,6 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      return false;
       wx.chooseAddress({
           success(res) {
               console.log(res.userName)
