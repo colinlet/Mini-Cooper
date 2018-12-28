@@ -97,7 +97,13 @@ Page({
     });
   },
   buy: function(){
-
+    let params = 'id='+this.data.id+
+        '&name='+this.data.name+
+        '&img='+this.data.list[0]+
+        '&price='+this.data.price;
+    wx.navigateTo({
+        url: '/pages/balance?'+params,
+    })
   },
   goCart: function(){
     wx.switchTab({

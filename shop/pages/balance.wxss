@@ -1,1 +1,4 @@
 /* pages/balance.wxss */
+page{
+    background-color: #ebebeb;
+}
