@@ -2,3 +2,54 @@
 page{
     background-color: #ebebeb;
 }
+#part{
+    background-color: #ffffff;
+    margin-top: 10px;
+    clear: both;
+}
+#part > .title{
+    line-height: 40px;
+    padding: 0 10px;
+    font-size: 18px;
+}
+#buy-list{
+    width: 100%;
+}
+#buy-list > .item{
+    border-top: 1px solid #ebebeb;
+    padding-left: 10px;
+    height: 55px;
+    background-color: #ffffff;
+    clear: both;
+}
+#buy-list > .item > .img{
+    margin-top: 5px;
+}
+#buy-list > .item > .name{
+    line-height: 55px;
+    height: 55px;
+    padding-left: 5px;
+    width: 65%;
+    overflow: hidden;
+}
+#buy-list > .item > .price{
+    line-height: 55px;
+    padding-right: 10px;
+}
+#buy-list > .item > .price > span{
+    color: #ff6700;
+}
+
+
+
+#goods-pay{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    color: #ffffff;
+    text-align: center;
+    border-top: 1px solid #ececec;
+    background-color: #ff6700;
+    line-height: 50px;
+}

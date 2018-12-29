@@ -5,7 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    buyList: [{
+      'id': 1,
+      'name': '小迷糊玻尿酸补水黑膜',
+      'price': 69,
+      'img': 'http://192.168.0.105/wechat/goods_001.jpg',
+      'number': 1,
+    },{
+      'id': 1,
+      'name': '小迷糊玻尿酸补水黑膜',
+      'price': 69,
+      'img': 'http://192.168.0.105/wechat/goods_001.jpg',
+      'number': 1,
+    }],
   },
 
   /**

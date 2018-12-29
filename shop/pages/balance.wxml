@@ -1,2 +1,20 @@
 <!--pages/balance.wxml-->
-<text>pages/balance.wxml</text>
+<view id="part">
+    <view class="title">购物清单</view>
+    <view id="buy-list">
+        <view class="item" wx:for="{{buyList}}" wx:key="">
+            <view style="float:left;" class="img">
+                <image src="{{item.img}}" style="width:45px;height:45px;" />
+            </view>
+            <view style="float:left;" class="name">{{item.name}}</view>
+            <view style="float:right;" class="price"><span>¥{{item.price}}</span> x {{item.number}}</view>
+        </view>
+    </view>
+</view>
+<view id="part">
+    <view class="title">收货地址</view>
+</view>
+<view id="part">
+    <view class="title">订单金额</view>
+</view>
+<view id="goods-pay">立即支付</view>
