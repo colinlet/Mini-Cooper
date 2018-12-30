@@ -1,0 +1,9 @@
+<!--pages/user/about.wxml-->
+<view class="round"></view>
+<view class="about">
+    <view class="title">Mini-Cooper 1.0.0</view>
+    <view class="desc">微信小程序电商解决方案</view>
+    <view class="cr">MIT License</view>
+    <view class="cr">Copyright (c) 2018 Colin Liu</view>
+</view>
+<view class="round-bottom"></view>

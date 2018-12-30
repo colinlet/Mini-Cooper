@@ -8,7 +8,11 @@
     "pages/logs/logs",
     "pages/single",
     "pages/list",
-    "pages/balance"
+    "pages/balance",
+    "pages/user/order",
+    "pages/user/address",
+    "pages/user/contact",
+    "pages/user/about"
   ],
   "window": {
     "backgroundTextStyle": "light",

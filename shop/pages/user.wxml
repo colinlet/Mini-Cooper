@@ -19,13 +19,13 @@
         </view>
         <view style="float:left;" class="t">收货地址</view>
     </view>
-    <view class="item">
+    <view class="item" bindtap="openThis" data-page="/pages/user/contact">
         <view style="float:left;">
             <image src="../static/img/contact.png" style="width:25px;height:25px;" />
         </view>
         <view style="float:left;" class="t">联系客服</view>
     </view>
-    <view class="item">
+    <view class="item" bindtap="openThis" data-page="/pages/user/about">
         <view style="float:left;">
             <image src="../static/img/about.png" style="width:25px;height:25px;" />
         </view>

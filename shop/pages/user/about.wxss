@@ -1,0 +1,31 @@
+/* pages/user/about.wxss */
+.round{
+    width: 30%;
+    height: 100px;
+    border-radius:0px 0px 0 100px;
+    background-color: #ff6700;
+    float: right;
+}
+.about{
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 200px;
+}
+.about > .title{
+    font-weight: bold;
+}
+.about > .desc{
+    margin-bottom: 10px;
+}
+.about > .cr{
+    color: #c1c1c1;
+}
+.round-bottom{
+    width: 30%;
+    height: 100px;
+    border-radius: 0 100px 0 0;
+    background-color: #ff6700;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
