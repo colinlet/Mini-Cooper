@@ -13,8 +13,20 @@
 </view>
 <view id="part">
     <view class="title">收货地址</view>
+    <view id="buy-address">
+        <view style="float:left;" class="left">
+            <view>185****5000 凌枫 收</view>
+            <view>广东省深圳市南山区</view>
+            <view>西丽湖路4065号(西丽湖东侧)</view>
+        </view>
+        <view style="float:left;" class="right">></view>
+    </view>
 </view>
 <view id="part">
-    <view class="title">订单金额</view>
+    <view class="title">订单金额<span class="order">应付：<span>¥8888</span></span></view>
+    <view id="buy-order">
+        <view class="item">商品总价 <span>¥888</span></view>
+        <view class="item">运费<span>¥0</span></view>
+    </view>
 </view>
 <view id="goods-pay">立即支付</view>

@@ -8,7 +8,7 @@ Page({
     user: {
       name: 'ColinLiu',
       uid: 716710,
-      img: 'http://192.168.0.105/wechat/profile.png',
+      img: 'http://192.168.0.105/wechat/profile.png?123',
     }
   },
 

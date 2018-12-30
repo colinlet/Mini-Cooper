@@ -39,7 +39,34 @@ page{
 #buy-list > .item > .price > span{
     color: #ff6700;
 }
-
+#buy-address{
+    border-top: 1px solid #ebebeb;
+    background-color: #ffffff;
+    height: 70px;
+    padding: 10px;
+}
+#buy-address > .left{
+    width: 80%;
+}
+#buy-address > .right{
+    width: 20%;
+    text-align: right;
+    line-height: 60px;
+}
+#part > .title > .order{
+    float: right;
+}
+#part > .title > .order > span{
+    color: #ff6700;
+}
+#buy-order > .item{
+    border-top: 1px solid #ebebeb;
+    padding: 10px;
+}
+#buy-order > .item > span{
+    float: right;
+    color: #ff6700;
+}
 
 
 #goods-pay{
