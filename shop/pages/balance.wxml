@@ -29,4 +29,4 @@
         <view class="item">运费<span>¥0</span></view>
     </view>
 </view>
-<view id="goods-pay">立即支付</view>
+<view id="goods-pay" bindtap="payThis">立即支付</view>

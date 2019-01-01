@@ -1,2 +1,23 @@
 <!--pages/user/order.wxml-->
-<text>pages/user/order.wxml</text>
+<view>
+    <view class="item" wx:for="{{orderList}}" wx:key="">
+        <view class="info">
+            <view class="order">订单号：{{item.order}}</view>
+            <view class="status">{{item.status_name}}</view>
+        </view>
+        <view class="cell" wx:for="{{item.list}}" wx:key="" wx:for-item="v">
+            <view style="float:left;" class="img">
+                <image
+                    src="{{v.img}}"
+                    style="width:50px;height:50px;"
+                />
+            </view>
+            <view style="float:left;" class="name">{{v.name}}</view>
+            <view style="float:left;" class="price">
+                <view class="n">¥{{v.price}}</view>
+                <view class="n">x{{v.number}}</view>
+            </view>
+        </view>
+        <view class="total">实付金额：<span>¥{{item.total}}</span></view>
+    </view>
+</view>

@@ -24,6 +24,19 @@ Page({
       url: '/pages/user/address',
     })
   },
+  payThis: function(){
+      wx.showModal({
+          title: '提示',
+          content: '支付还未接入，暂时无法进行结算',
+          success(res) {
+              if (res.confirm) {
+                  console.log('用户点击确定')
+              } else if (res.cancel) {
+                  console.log('用户点击取消')
+              }
+          }
+      })
+  },
 
   /**
    * 生命周期函数--监听页面加载

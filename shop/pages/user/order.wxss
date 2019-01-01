@@ -2,3 +2,57 @@
 page{
     background-color: #ebebeb;
 }
+.item{
+    margin-top: 10px;
+}
+.info{
+    background-color: #ffffff;
+    line-height: 40px;
+    height: 40px;
+    padding: 0 10px;
+}
+.info > .order{
+    color: #9a9a9a;
+    width: 70%;
+    float: left;
+}
+.info > .status{
+    width: 30%;
+    float: left;
+    color: #ff6600;
+    text-align: right;
+}
+.cell{
+    background-color: #ffffff;
+    border-top: 1px solid #ebebeb;
+    height: 60px;
+    padding: 0 10px;
+}
+.cell > .img{
+    width: 15%;
+    padding-top: 5px;
+}
+.cell > .name{
+    width: 65%;
+    line-height: 60px;
+}
+.cell > .price{
+    width: 20%;
+    margin-top: 10px;
+}
+.cell > .price > .n{
+    text-align: right;
+    color: #9a9a9a;
+    line-height: 20px;
+}
+.total{
+    background-color: #ffffff;
+    border-top: 1px solid #ebebeb;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    text-align: right;
+}
+.total > span{
+    color: #727272;
+}
