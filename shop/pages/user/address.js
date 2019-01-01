@@ -5,7 +5,44 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    address: [],
+  },
+  addThis: function(){
+    let _this = this;
+    wx.chooseAddress({
+      success(res){
+        let address = _this.data.address;
+        let item = {
+          id: address.length + 1,
+          userName: res.userName,
+          postalCode: res.postalCode,
+          provinceName: res.provinceName,
+          cityName: res.cityName,
+          countyName: res.countyName,
+          detailInfo: res.detailInfo,
+          nationalCode: res.nationalCode,
+          telNumber: res.telNumber,
+          status: 0,
+        };
+        address.push(item);
+        _this.setData({
+            address: address,
+        })
+      }
+    })
+  },
+  chooseThis: function(e){
+    let address = this.data.address;
+    address.forEach(function(item){
+      item.status = 0;
+      if(item.id === e.currentTarget.dataset.id){
+        item.status = 1;
+      }
+    });
+    this.setData({
+        address: address,
+    });
+    console.log("选择地址");
   },
 
   /**

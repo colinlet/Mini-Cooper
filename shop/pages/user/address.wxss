@@ -1,1 +1,42 @@
 /* pages/user/address.wxss */
+page{
+    background-color: #ebebeb;
+}
+#address-list{
+    margin-top: 10px;
+}
+.item{
+    background-color: #ffffff;
+    border-bottom: 1px solid #ebebeb;
+    padding: 10px 20px 0 20px;
+    height: 82px;
+}
+.item > .left{
+    width: 75%;
+}
+.item > .right{
+    width: 25%;
+    text-align: right;
+}
+.item > .right > .edit{
+    float: right;
+    width: 30px;
+    margin-top: 10px;
+}
+.item > .right > .ok{
+    float: right;
+    width: 30px;
+    margin-top: 10px;
+}
+
+#address-add{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    color: #ffffff;
+    text-align: center;
+    border-top: 1px solid #ececec;
+    background-color: #ff6700;
+    line-height: 50px;
+}

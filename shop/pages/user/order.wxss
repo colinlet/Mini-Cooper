@@ -1,1 +1,4 @@
 /* pages/user/order.wxss */
+page{
+    background-color: #ebebeb;
+}

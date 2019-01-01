@@ -7,13 +7,13 @@
     </view>
 </view>
 <view class="list">
-    <view class="item">
+    <view class="item" bindtap="openThis" data-page="/pages/user/order">
         <view style="float:left;">
             <image src="../static/img/order.png" style="width:25px;height:25px;" />
         </view>
         <view style="float:left;" class="t">我的订单</view>
     </view>
-    <view class="item">
+    <view class="item" bindtap="openThis" data-page="/pages/user/address">
         <view style="float:left;">
             <image src="../static/img/address.png" style="width:25px;height:25px;" />
         </view>

@@ -13,7 +13,7 @@
 </view>
 <view id="part">
     <view class="title">收货地址</view>
-    <view id="buy-address">
+    <view id="buy-address" bindtap="changeAddress">
         <view style="float:left;" class="left">
             <view>185****5000 凌枫 收</view>
             <view>广东省深圳市南山区</view>

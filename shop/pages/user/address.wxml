@@ -1,2 +1,20 @@
 <!--pages/user/address.wxml-->
-<text>pages/user/address.wxml</text>
+<view id="address-list">
+    <view wx:for="{{address}}" wx:key="">
+        <view class="item" bindtap="chooseThis" data-id="{{item.id}}">
+            <view style="float:left" class="left">
+                <view>{{item.telNumber}} {{item.userName}} 收</view>
+                <view>{{item.provinceName}} {{item.cityName}} {{item.countyName}} {{item.detailInfo}}</view>
+            </view>
+            <view style="float:left" class="right">
+                <view class="ok" wx:if="{{item.status}}">
+                    <icon type="success_no_circle" size="15" color="green" />
+                </view>
+                <!--view class="edit">
+                    <i class="iconfont icon-edit-square"></i>
+                </view-->
+            </view>
+        </view>
+    </view>
+</view>
+<view id="address-add" bindtap="addThis">新增收货地址</view>

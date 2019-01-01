@@ -19,6 +19,11 @@ Page({
       'number': 1,
     }],
   },
+  changeAddress: function(){
+    wx.navigateTo({
+      url: '/pages/user/address',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

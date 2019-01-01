@@ -67,8 +67,6 @@ page{
     float: right;
     color: #ff6700;
 }
-
-
 #goods-pay{
     width: 100%;
     position: fixed;
