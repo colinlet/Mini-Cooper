@@ -12,6 +12,9 @@ Page({
     wx.chooseAddress({
       success(res){
         let address = _this.data.address;
+        address.forEach(function(item){
+          item.status = 0;
+        });
         let item = {
           id: address.length + 1,
           userName: res.userName,
@@ -22,7 +25,7 @@ Page({
           detailInfo: res.detailInfo,
           nationalCode: res.nationalCode,
           telNumber: res.telNumber,
-          status: 0,
+          status: 1,
         };
         address.push(item);
         _this.setData({
