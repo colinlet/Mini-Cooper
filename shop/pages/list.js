@@ -7,81 +7,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-      goodsList: [{
-          'id': 1,
-          'name': '小迷糊玻尿酸补水黑膜',
-          'desc': '让肌肤回归净润清透！',
-          'price': 69,
-          'origin_price': 299,
-          'img': 'http://192.168.0.105/wechat/goods_001.jpg',
-      },{
-          'id': 2,
-          'name': '小迷糊玻尿酸补水黑膜',
-          'desc': '让肌肤回归净润清透！',
-          'price': 69,
-          'origin_price': 299,
-          'img': 'http://192.168.0.105/wechat/goods_002.jpg',
-      },{
-          'id': 3,
-          'name': '小迷糊玻尿酸补水黑膜',
-          'desc': '让肌肤回归净润清透！',
-          'price': 69,
-          'origin_price': 299,
-          'img': 'http://192.168.0.105/wechat/goods_003.jpg',
-      },{
-          'id': 4,
-          'name': '小迷糊玻尿酸补水黑膜',
-          'desc': '让肌肤回归净润清透！',
-          'price': 69,
-          'origin_price': 299,
-          'img': 'http://192.168.0.105/wechat/goods_004.jpg',
-      },{
-          'id': 5,
-          'name': '小迷糊玻尿酸补水黑膜',
-          'desc': '让肌肤回归净润清透！',
-          'price': 69,
-          'origin_price': 299,
-          'img': 'http://192.168.0.105/wechat/goods_005.jpg',
-      },{
-          'id': 6,
-          'name': '小迷糊玻尿酸补水黑膜',
-          'desc': '让肌肤回归净润清透！',
-          'price': 69,
-          'origin_price': 299,
-          'img': 'http://192.168.0.105/wechat/goods_006.jpg',
-      },{
-          'id': 7,
-          'name': '小迷糊玻尿酸补水黑膜',
-          'desc': '让肌肤回归净润清透！',
-          'price': 69,
-          'origin_price': 299,
-          'img': 'http://192.168.0.105/wechat/goods_007.jpg',
-      },{
-          'id': 8,
-          'name': '小迷糊玻尿酸补水黑膜',
-          'desc': '让肌肤回归净润清透！',
-          'price': 69,
-          'origin_price': 299,
-          'img': 'http://192.168.0.105/wechat/goods_008.jpg',
-      },],
+      id: 0,
+      page: 1,
+      goodsList: [],
   },
   openThis: function(e){
     wx.navigateTo({
         url: '/pages/single?id='+e.currentTarget.dataset.id,
     })
   },
-  getData: function(id){
+  getData: function(){
     let _this = this;
     wx.request({
         url: app.globalData.baseApi+"goods/getList",
         method: "GET",
         data: {
-            id: id
+            id: this.data.id,
+            page: this.data.page,
         },
         success(res){
             if (res.data.code == 200){
+                if (_this.data.page == 1){
+                    wx.stopPullDownRefresh();
+                }
+                let list = _this.data.goodsList;
+                if (_this.data.page == 1){
+                    list = res.data.data.list;
+                } else {
+                    res.data.data.list.forEach(function(item){
+                       list.push(item)
+                    });
+                }
                 _this.setData({
-                    goodsList: res.data.data.list,
+                    goodsList: list,
+                    page: _this.data.page+1,
                 });
             }
         },
@@ -98,7 +57,10 @@ Page({
     wx.setNavigationBarTitle({
       title: options.title,
     });
-    this.getData(options.item_id);
+    this.setData({
+        id: options.item_id,
+    });
+    this.getData();
   },
 
   /**
@@ -133,14 +95,18 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+        page: 1,
+    });
+    this.getData();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log("上拉");
+    this.getData();
   },
 
   /**
