@@ -22,4 +22,7 @@ App({
     cartNum: 0,
     userInfo: null
   },
+  checkAuth: function(){
+    console.log("检查登录状态");
+  },
 });
