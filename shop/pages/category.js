@@ -1,40 +1,12 @@
 // pages/category.js
+const app = getApp();
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    menu: [{
-      'id': 1, 'name': '新品', 'list': [
-          {'item_id':1, 'name': '面膜', 'img': 'http://192.168.0.105/wechat/cate_001.png'},
-          {'item_id':1, 'name': '护肤套装', 'img': 'http://192.168.0.105/wechat/cate_001.png'},
-          {'item_id':1, 'name': '卸妆', 'img': 'http://192.168.0.105/wechat/cate_001.png'},
-          {'item_id':1, 'name': '补水', 'img': 'http://192.168.0.105/wechat/cate_001.png'},
-        ],
-    },{
-      'id': 2, 'name': '热销', 'list': [
-            {'item_id':1, 'name': '时尚彩妆', 'img': 'http://192.168.0.105/wechat/cate_001.png'},
-            {'item_id':1, 'name': '沐浴露', 'img': 'http://192.168.0.105/wechat/cate_001.png'},
-        ],
-    },{
-      'id': 3, 'name': '折扣',
-    },{
-      'id': 4, 'name': '护肤品',
-    },{
-      'id': 5, 'name': '彩妆',
-    },{
-      'id': 6, 'name': '男士护肤',
-    },{
-      'id': 7, 'name': '肤质推选',
-    },{
-      'id': 8, 'name': '美发护发',
-    },{
-      'id': 9, 'name': '包包',
-    },{
-      'id': 10, 'name': '手表',
-    },{
-      'id': 11, 'name': '药品',
-    }],
+    menu: [],
     activeIndex: 0,
     submenu: [],
   },
@@ -44,8 +16,8 @@ Page({
        if (item.id === e.currentTarget.dataset.id){
          _this.setData({
              activeIndex: index,
-             submenu: item.list
-         })
+         });
+         _this.getData(item.id);
        }
     });
   },
@@ -56,6 +28,33 @@ Page({
     wx.navigateTo({
         url: '/pages/list'+params,
     })
+  },
+  getData: function(pid){
+    let _this = this;
+    wx.request({
+        url: app.globalData.baseApi+"category/getList",
+        method: "GET",
+        data: {
+            pid: pid
+        },
+        success(res){
+            if (res.data.code == 200){
+                if (pid == 0) {
+                    _this.setData({
+                        menu: res.data.data.list,
+                    })
+                    _this.getData(_this.data.menu[0].id); //初始加载子列表
+                }else{
+                    _this.setData({
+                        submenu: res.data.data.list,
+                    })
+                }
+            }
+        },
+        fail(){
+
+        }
+      });
   },
 
   /**
@@ -70,9 +69,7 @@ Page({
               });
           }
       });
-      this.setData({
-          submenu: this.data.menu[this.data.activeIndex].list
-      })
+      this.getData(0);
   },
 
   /**

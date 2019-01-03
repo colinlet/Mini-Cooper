@@ -49,8 +49,9 @@ App({
     this.globalData.cartNum = cartNum;
   },
   globalData: {
+    baseApi: "http://192.168.0.105:8000/api/v1/",
     cartList: [],
     cartNum: 0,
     userInfo: null
   },
-})
+});

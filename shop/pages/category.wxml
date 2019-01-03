@@ -27,7 +27,7 @@
             <view
                 class="subnav-item"
                 bindtap="openThis"
-                data-item_id="{{item.item_id}}"
+                data-item_id="{{item.id}}"
                 data-name="{{item.name}}"
             >
                 <image
