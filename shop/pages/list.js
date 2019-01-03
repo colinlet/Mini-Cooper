@@ -1,4 +1,6 @@
 // pages/list.js
+const app = getApp();
+
 Page({
 
   /**
@@ -68,6 +70,26 @@ Page({
         url: '/pages/single?id='+e.currentTarget.dataset.id,
     })
   },
+  getData: function(id){
+    let _this = this;
+    wx.request({
+        url: app.globalData.baseApi+"goods/getList",
+        method: "GET",
+        data: {
+            id: id
+        },
+        success(res){
+            if (res.data.code == 200){
+                _this.setData({
+                    goodsList: res.data.data.list,
+                });
+            }
+        },
+        fail(){
+
+        }
+    });
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -76,7 +98,7 @@ Page({
     wx.setNavigationBarTitle({
       title: options.title,
     });
-    console.log(options.id, options.item_id, options.title);
+    this.getData(options.item_id);
   },
 
   /**
