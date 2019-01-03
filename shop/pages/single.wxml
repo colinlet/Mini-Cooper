@@ -6,10 +6,10 @@
     duration="{{duration}}"
     style="width:100%;height:{{imageHeight}}px"
 >
-  <block wx:for="{{showcase}}" wx:key="">
+  <block wx:for="{{goods.showcase}}" wx:key="">
     <swiper-item>
         <image
-            src="{{item}}"
+            src="{{goods.img}}{{item}}"
             model="aspectFit"
             style="width:100%;height:{{imageHeight}}px"
             bindload="imageLoad"
@@ -18,14 +18,14 @@
   </block>
 </swiper>
 <view class="goods-main">
-    <view class="name">{{name}}</view>
-    <view class="desc">{{desc}}</view>
-    <view class="price">¥{{price}} <b class="o">¥{{origin_price}}</b></view>
+    <view class="name">{{goods.name}}</view>
+    <view class="desc">{{goods.desc}}</view>
+    <view class="price">¥{{goods.price}} <b class="o">¥{{goods.origin_price}}</b></view>
 </view>
 <view class="goods-desc">
-    <view wx:for="{{list}}" wx:key="{{index}}">
+    <view wx:for="{{goods.list}}" wx:key="{{index}}">
         <image
-            src="{{item}}"
+            src="{{goods.img}}{{item}}"
             style="width:{{images[index].width}}rpx;height:{{images[index].height}}rpx;"
             bindload="listLoad"
             data-id="{{index}}"

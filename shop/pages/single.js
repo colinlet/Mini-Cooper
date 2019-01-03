@@ -13,31 +13,7 @@ Page({
     interval: 5000,
     duration: 1000,
     imageHeight: 0,
-    showcase: [
-        'http://192.168.0.105/wechat/showcase_01.png',
-        'http://192.168.0.105/wechat/showcase_02.png',
-        'http://192.168.0.105/wechat/showcase_03.png',
-        'http://192.168.0.105/wechat/showcase_04.png',
-        'http://192.168.0.105/wechat/showcase_05.png',
-    ],
-    id: 0,
-    name: '自然堂补水保湿面膜',
-    desc: '喜马拉雅魔法，补水嫩肤、舒缓保湿、细致毛孔、提亮肤色，保质期3年，规格36ml*5',
-    price: '8888',
-    origin_price: '9999',
-    list: [
-        'http://192.168.0.105/wechat/goods_001.png',
-        'http://192.168.0.105/wechat/goods_002.png',
-        'http://192.168.0.105/wechat/goods_003.png',
-        'http://192.168.0.105/wechat/goods_004.png',
-        'http://192.168.0.105/wechat/goods_005.png',
-        'http://192.168.0.105/wechat/goods_006.png',
-        'http://192.168.0.105/wechat/goods_007.png',
-        'http://192.168.0.105/wechat/goods_007.png',
-        'http://192.168.0.105/wechat/goods_008.png',
-        'http://192.168.0.105/wechat/goods_009.png',
-        'http://192.168.0.105/wechat/goods_010.png',
-    ],
+    goods: {},
     images: []
   },
   imageLoad: function(e){
@@ -63,19 +39,19 @@ Page({
     let _this = this;
     let newItem = true;
     app.globalData.cartList.forEach(function(item, index){
-        if (item.id == _this.data.id){
+        if (item.id == _this.data.goods.id){
             newItem = false;
             app.globalData.cartList[index].number++;
         }
     });
     if (newItem){
         let goodsItem = {
-            id: this.data.id,
-            name: this.data.name,
-            desc: this.data.desc,
-            price: this.data.price,
-            origin_price: this.data.origin_price,
-            img: this.data.showcase[0],
+            id: this.data.goods.id,
+            name: this.data.goods.name,
+            desc: this.data.goods.desc,
+            price: this.data.goods.price,
+            origin_price: this.data.goods.origin_price,
+            img: this.data.goods.img + this.data.goods.showcase[0],
             number: 1,
             selectStatus: '',
         };
@@ -97,10 +73,10 @@ Page({
     });
   },
   buy: function(){
-    let params = 'id='+this.data.id+
-        '&name='+this.data.name+
-        '&img='+this.data.list[0]+
-        '&price='+this.data.price;
+    let params = 'id='+this.data.goods.id+
+        '&name='+this.data.goods.name+
+        '&img='+this.data.goods.showcase[0]+
+        '&price='+this.data.goods.price;
     wx.navigateTo({
         url: '/pages/balance?'+params,
     })
@@ -110,14 +86,40 @@ Page({
         url: '/pages/cart',
     })
   },
+  getData: function(){
+    let _this = this;
+    wx.request({
+        url: app.globalData.baseApi+"goods",
+        method: "GET",
+        data: {
+            id: this.data.goods.id,
+        },
+        success(res){
+            if (res.data.code == 200){
+                let goods = res.data.data;
+                goods.showcase = goods.showcase.split(",");
+                goods.list = goods.list.split(",");
+                _this.setData({
+                    goods: goods,
+                });
+            }
+        },
+        fail(){
+
+        }
+    });
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let goods = this.data.goods;
+    goods.id = options.id;
     this.setData({
-        id: options.id,
+        goods: goods,
     });
+    this.getData();
   },
 
   /**
