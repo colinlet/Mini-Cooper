@@ -22,8 +22,8 @@ App({
     baseApi: "http://192.168.0.105:8000/api/v1/",
     cartList: [],
     cartNum: 0,
-    userInfo: null,
     session: "",
+    userInfo: {},
   },
   checkAuth: function(){
     try{
@@ -32,7 +32,6 @@ App({
         this.globalData.session = session;
         return true;
       }
-      return false;
     }catch(e){
       console.log(e.toString());
       return false;
@@ -52,6 +51,7 @@ App({
     let _this = this;
     wx.request({
         url: _this.globalData.baseApi + "user/login",
+        method: "GET",
         data: {code: code},
         success(res){
           if (res.data.code == 200) {
@@ -65,5 +65,5 @@ App({
           }
         }
     })
-  }
+  },
 });

@@ -12,7 +12,8 @@
     "pages/user/order",
     "pages/user/address",
     "pages/user/contact",
-    "pages/user/about"
+    "pages/user/about",
+    "pages/common/auth"
   ],
   "window": {
     "backgroundTextStyle": "light",

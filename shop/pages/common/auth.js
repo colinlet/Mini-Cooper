@@ -1,4 +1,4 @@
-// pages/user.js
+// pages/common/auth.js
 const app = getApp();
 
 Page({
@@ -7,37 +7,39 @@ Page({
    * 页面的初始数据
    */
   data: {
-    user: {}
+
   },
-  openThis: function(e){
-      wx.navigateTo({
-          url: e.currentTarget.dataset.page,
-      })
+  setUserInfo: function(e){
+    if (e.detail.errMsg !== "getUserInfo:ok"){
+      console.log("授权被拒绝");
+      return false;
+    }
+    app.globalData.userInfo = {
+      "avatar_url": e.detail.userInfo.avatarUrl,
+      "nick_name": e.detail.userInfo.nickName,
+    };
+    let data = e.detail.userInfo;
+    data["session"] = app.globalData.session;
+    wx.request({
+      url: app.globalData.baseApi + "user/info",
+      method: "POST",
+      header: {"Content-Type":"application/x-www-form-urlencoded"},
+      data: data,
+      success(res){
+        if (res.data.code == 200){
+          wx.navigateBack({
+            delta: 1
+          })
+        }
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      let _this = this;
-      wx.request({
-          url: app.globalData.baseApi + "user/info",
-          method: "GET",
-          data: {session: app.globalData.session},
-          success(res) {
-            if (res.data.code == 200){
-                if (res.data.data.nick_name.length > 0){
-                    _this.setData({
-                        user: res.data.data
-                    })
-                }else{
-                    wx.navigateTo({
-                        url: '/pages/common/auth',
-                    })
-                }
-            }
-          }
-      })
+
   },
 
   /**
@@ -51,11 +53,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (!this.user){
-        this.setData({
-            user: app.globalData.userInfo
-        })
-    }
+
   },
 
   /**
