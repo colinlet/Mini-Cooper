@@ -14,10 +14,6 @@ Page({
       console.log("授权被拒绝");
       return false;
     }
-    app.globalData.userInfo = {
-      "avatar_url": e.detail.userInfo.avatarUrl,
-      "nick_name": e.detail.userInfo.nickName,
-    };
     let data = e.detail.userInfo;
     data["session"] = app.globalData.session;
     wx.request({

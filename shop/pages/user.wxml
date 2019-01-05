@@ -3,7 +3,7 @@
     <view style="float:left;"><image src="{{user.avatar_url}}" style="width:60px;height:60px;" /></view>
     <view style="float:left;" class="info">
         <view>{{user.nick_name}}</view>
-        <view style="color: #c1c1c1">账号：716710</view>
+        <view style="color: #c1c1c1">账号：{{user.mid}}</view>
     </view>
 </view>
 <view class="list">

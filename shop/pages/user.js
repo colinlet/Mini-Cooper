@@ -14,30 +14,39 @@ Page({
           url: e.currentTarget.dataset.page,
       })
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  getInfo: function(){
       let _this = this;
       wx.request({
           url: app.globalData.baseApi + "user/info",
           method: "GET",
           data: {session: app.globalData.session},
           success(res) {
-            if (res.data.code == 200){
-                if (res.data.data.nick_name.length > 0){
-                    _this.setData({
-                        user: res.data.data
-                    })
-                }else{
-                    wx.navigateTo({
-                        url: '/pages/common/auth',
-                    })
-                }
-            }
+              if (res.data.code == 200){
+                  if (res.data.data.nick_name.length > 0){
+                      let zero = "1000000";
+                      let midStr = new String(res.data.data.mid);
+                      if (midStr.length < zero.length){
+                          midStr = zero.substring(0, zero.length - midStr.length) + midStr;
+                          res.data.data.mid = new Number(midStr);
+                      }
+                      _this.setData({
+                          user: res.data.data
+                      })
+                  }else{
+                      wx.navigateTo({
+                          url: '/pages/common/auth',
+                      })
+                  }
+              }
           }
       })
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
   },
 
   /**
@@ -51,11 +60,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (!this.user){
-        this.setData({
-            user: app.globalData.userInfo
-        })
-    }
+    this.getInfo();
   },
 
   /**
