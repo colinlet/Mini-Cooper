@@ -20,9 +20,40 @@ App({
     baseApi: "http://192.168.0.105:8000/api/v1/",
     cartList: [],
     cartNum: 0,
-    userInfo: null
+    userInfo: null,
+    session: "",
   },
   checkAuth: function(){
-    console.log("检查登录状态");
+    try{
+      const session = wx.getStorageSync("session");
+      if (session) return false;
+      this.globalData.session = session;
+    }catch(e){
+      console.log(e.toString());
+      return false;
+    }
+    let _this = this;
+    wx.login({
+        success(res){
+          if (res.code){
+            _this.login(res.code);
+          } else {
+            console.log("登录失败！"+res.errMsg);
+          }
+        }
+    });
   },
+  login: function(code) {
+    let _this = this;
+    wx.request({
+        url: _this.globalData.baseApi + "user/login",
+        data: {code: code},
+        success(res){
+          if (res.data.code == 200) {
+
+          }
+          console.log(res);
+        }
+    })
+  }
 });
