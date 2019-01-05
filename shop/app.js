@@ -1,6 +1,8 @@
 //app.js
 App({
   onLaunch: function () {
+    //获取用户授权
+    this.checkAuth();
     //初始化购物车信息
     try{
       const jsonStr = wx.getStorageSync('cart-list');
@@ -26,8 +28,11 @@ App({
   checkAuth: function(){
     try{
       const session = wx.getStorageSync("session");
-      if (session) return false;
-      this.globalData.session = session;
+      if (session) {
+        this.globalData.session = session;
+        return true;
+      }
+      return false;
     }catch(e){
       console.log(e.toString());
       return false;
@@ -50,9 +55,14 @@ App({
         data: {code: code},
         success(res){
           if (res.data.code == 200) {
-
+            _this.globalData.session = res.data.session;
+            try{
+              wx.setStorageSync("session", res.data.session);
+            }catch(e){
+              console.log(e.toString());
+              return false;
+            }
           }
-          console.log(res);
         }
     })
   }
