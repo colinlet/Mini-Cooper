@@ -1,4 +1,6 @@
 // pages/user/address.js
+const app = getApp();
+
 Page({
 
   /**
@@ -7,39 +9,61 @@ Page({
   data: {
     address: [],
   },
-  addThis: function(){
+  getAddress: function(){
     let _this = this;
     wx.chooseAddress({
       success(res){
-        let address = _this.data.address;
-        address.forEach(function(item){
-          item.status = 0;
-        });
         let item = {
-          id: address.length + 1,
-          userName: res.userName,
-          postalCode: res.postalCode,
-          provinceName: res.provinceName,
-          cityName: res.cityName,
-          countyName: res.countyName,
-          detailInfo: res.detailInfo,
-          nationalCode: res.nationalCode,
-          telNumber: res.telNumber,
-          status: 1,
+          user_name: res.userName,
+          postal_code: res.postalCode,
+          province_name: res.provinceName,
+          city_name: res.cityName,
+          county_name: res.countyName,
+          detail_info: res.detailInfo,
+          national_code: res.nationalCode,
+          tel_number: res.telNumber,
         };
-        address.push(item);
-        _this.setData({
-            address: address,
-        })
+        _this.addThis(item);
       }
+    })
+  },
+  addThis: function(params){
+    let data = params;
+    data["session"] = app.globalData.session;
+    let _this = this;
+    wx.request({
+        url: app.globalData.baseApi + "user/address",
+        method: "POST",
+        header: {"Content-Type":"application/x-www-form-urlencoded"},
+        data: data,
+        success(res){
+            if (res.data.code == 200){
+              _this.getList();
+            }
+        }
+    });
+  },
+  getList: function(){
+    let _this = this;
+    wx.request({
+        url: app.globalData.baseApi + "user/address",
+        method: "GET",
+        data: {session: app.globalData.session},
+        success(res){
+          if (res.data.code == 200){
+            _this.setData({
+                address: res.data.list
+            })
+          }
+        }
     })
   },
   chooseThis: function(e){
     let address = this.data.address;
     address.forEach(function(item){
-      item.status = 0;
+      item.is_use = 0;
       if(item.id === e.currentTarget.dataset.id){
-        item.status = 1;
+        item.is_use = 1;
       }
     });
     this.setData({
@@ -52,7 +76,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getList();
   },
 
   /**
