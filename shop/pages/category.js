@@ -42,8 +42,10 @@ Page({
                 if (pid == 0) {
                     _this.setData({
                         menu: res.data.data.list,
-                    })
-                    _this.getData(_this.data.menu[0].id); //初始加载子列表
+                    });
+                    if (res.data.data.list.length > 0) {
+                        _this.getData(_this.data.menu[0].id); //初始加载子列表
+                    }
                 }else{
                     _this.setData({
                         submenu: res.data.data.list,
