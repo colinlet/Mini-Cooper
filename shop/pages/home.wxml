@@ -7,7 +7,7 @@
     style="width:100%;height:{{imageHeight}}px"
 >
   <block wx:for="{{slideshow}}" wx:key="">
-    <swiper-item bindtap="openThis" data-id="{{item.id}}">
+    <swiper-item bindtap="openThis" data-id="{{item.goods_id}}">
         <image
             src="{{item.img}}"
             model="aspectFit"
