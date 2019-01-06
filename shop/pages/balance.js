@@ -14,6 +14,7 @@ Page({
       goods: 0,
       exp: 0,
     },
+    payNotice: "",
   },
   changeAddress: function(){
     wx.navigateTo({
@@ -21,9 +22,10 @@ Page({
     })
   },
   payThis: function(){
+      let _this = this;
       wx.showModal({
           title: '提示',
-          content: '支付还未接入，暂时无法进行结算',
+          content: _this.data.payNotice,
           success(res) {
               if (res.confirm) {
                   console.log('用户点击确定')
@@ -42,7 +44,8 @@ Page({
         success(res){
           if (res.data.code == 200){
             _this.setData({
-               address: res.data.data,
+                address: res.data.data,
+                payNotice: res.data.pay_notice,
             });
           }
         }

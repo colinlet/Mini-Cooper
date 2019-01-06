@@ -29,7 +29,7 @@ page{
     line-height: 55px;
     height: 55px;
     padding-left: 5px;
-    width: 65%;
+    width: 60%;
     overflow: hidden;
 }
 #buy-list > .item > .price{
