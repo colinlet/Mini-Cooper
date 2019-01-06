@@ -51,8 +51,20 @@ Page({
         data: {page: _this.data.page},
         success(res){
             if (res.data.code == 200){
+                if (_this.data.page == 1){
+                    wx.stopPullDownRefresh();
+                }
+                let list = _this.data.goodsList;
+                if (_this.data.page == 1){
+                    list = res.data.data.list;
+                } else {
+                    res.data.data.list.forEach(function(item){
+                        list.push(item)
+                    });
+                }
                 _this.setData({
-                    goodsList: res.data.data.list
+                    goodsList: list,
+                    page: _this.data.page + 1,
                 })
             }
         }
@@ -99,14 +111,19 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+        page: 1,
+    });
+    this.getSlideshow();
+    this.getList();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+      console.log("上拉");
+      this.getList();
   },
 
   /**
