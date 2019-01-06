@@ -57,11 +57,9 @@ Page({
    */
   onLoad: function (options) {
     if (JSON.stringify(options) !== "{}") {
-      let goods = options;
-      goods.number = 1;
-      goods.img = "http://192.168.0.105:8000/images/" + goods.img;
+      options.number = 1;
       let buyList = this.data.buyList;
-      buyList.push(goods);
+      buyList.push(options);
       this.setData({
           buyList: buyList
       })
