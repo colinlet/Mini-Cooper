@@ -1,23 +1,19 @@
 // pages/balance.js
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    buyList: [{
-      'id': 1,
-      'name': '小迷糊玻尿酸补水黑膜',
-      'price': 69,
-      'img': 'http://192.168.0.105/wechat/goods_001.jpg',
-      'number': 1,
-    },{
-      'id': 1,
-      'name': '小迷糊玻尿酸补水黑膜',
-      'price': 69,
-      'img': 'http://192.168.0.105/wechat/goods_001.jpg',
-      'number': 1,
-    }],
+    buyList: [],
+    address: {},
+    payInfo: {
+      total: 0,
+      goods: 0,
+      exp: 0,
+    },
   },
   changeAddress: function(){
     wx.navigateTo({
@@ -37,12 +33,51 @@ Page({
           }
       })
   },
+  getAddress: function() {
+    let _this = this;
+    wx.request({
+        url: app.globalData.baseApi + "user/currentAddress",
+        method: "GET",
+        data: {session: app.globalData.session},
+        success(res){
+          if (res.data.code == 200){
+            _this.setData({
+               address: res.data.data,
+            });
+          }
+        }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    if (JSON.stringify(options) !== "{}") {
+      let goods = options;
+      goods.number = 1;
+      goods.img = "http://192.168.0.105:8000/images/" + goods.img;
+      let buyList = this.data.buyList;
+      buyList.push(goods);
+      this.setData({
+          buyList: buyList
+      })
+    }else{
+      this.setData({
+          buyList: app.globalData.cartList
+      })
+    }
+    let goodsPrices = 0;
+    this.data.buyList.forEach(function(item){
+      goodsPrices = goodsPrices + item.price * item.number;
+    });
+    this.setData({
+        payInfo: {
+          total: goodsPrices,
+          goods: goodsPrices,
+          exp: 0,
+        }
+    })
   },
 
   /**
@@ -56,7 +91,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getAddress();
   },
 
   /**

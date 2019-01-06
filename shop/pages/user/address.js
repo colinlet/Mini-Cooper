@@ -69,7 +69,17 @@ Page({
     this.setData({
         address: address,
     });
-    console.log("选择地址");
+    wx.request({
+        url: app.globalData.baseApi + "user/chooseAddress",
+        method: "POST",
+        header: {"Content-Type":"application/x-www-form-urlencoded"},
+        data: {session: app.globalData.session, id: e.currentTarget.dataset.id},
+        success(res){
+          if (res.data.code == 200){
+            console.log("更新选中");
+          }
+        }
+    });
   },
 
   /**

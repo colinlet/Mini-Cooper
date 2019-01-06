@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orderList: [{
+    orderList: [/*{
       order: '190101019054701',
       status: 1,
       total: 3555.00,
@@ -35,7 +35,7 @@ Page({
             price: 1299.00,
             number: 1,
         }]
-    }],
+    }*/],
   },
 
   /**
