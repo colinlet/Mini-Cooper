@@ -48,9 +48,9 @@
 
 > 参考微信小程序相关文档
 
-### 后台部署
+### 后端部署
 
-[请移步Mini-Cloud](https://github.com/colinlet/Mini-Cloud)
+请移步 [Mini-Cloud](https://github.com/colinlet/Mini-Cloud) - go开发
 
 ### 商品配置
 
