@@ -50,7 +50,7 @@
 
 ### 后端部署
 
-请移步 [Mini-Cloud](https://github.com/colinlet/Mini-Cloud) - go开发
+请移步 [Mini-Cloud](https://github.com/colinlet/Mini-Cloud) —— 使用go开发
 
 ### 商品配置
 
