@@ -19,7 +19,7 @@ App({
     this.globalData.cartNum = cartNum;
   },
   globalData: {
-    baseApi: "http://192.168.0.105:8080/api/v1/",
+    baseApi: "http://127.0.0.1:8080/api/v1/",
     cartList: [],
     cartNum: 0,
     session: "",
