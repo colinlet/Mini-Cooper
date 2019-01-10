@@ -4,8 +4,6 @@
     "pages/category",
     "pages/cart",
     "pages/user",
-    "pages/index/index",
-    "pages/logs/logs",
     "pages/single",
     "pages/list",
     "pages/balance",
