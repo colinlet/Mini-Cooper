@@ -13,7 +13,7 @@ Page({
   },
   openThis: function(e){
     wx.navigateTo({
-        url: '/pages/single?id='+e.currentTarget.dataset.id,
+        url: '/pages/category/single?id='+e.currentTarget.dataset.id,
     })
   },
   getData: function(){
@@ -115,4 +115,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-})
+});

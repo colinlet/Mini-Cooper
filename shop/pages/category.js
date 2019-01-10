@@ -26,7 +26,7 @@ Page({
         params += '&item_id='+e.currentTarget.dataset.item_id;
         params += '&title='+e.currentTarget.dataset.name;
     wx.navigateTo({
-        url: '/pages/list'+params,
+        url: '/pages/category/list'+params,
     })
   },
   getData: function(pid){

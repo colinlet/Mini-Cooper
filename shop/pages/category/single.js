@@ -79,7 +79,7 @@ Page({
         '&img='+img+
         '&price='+this.data.goods.price;
     wx.navigateTo({
-        url: '/pages/balance?'+params,
+        url: '/pages/cart/balance?'+params,
     })
   },
   goCart: function(){
@@ -171,4 +171,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-})
+});
