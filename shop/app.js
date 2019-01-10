@@ -54,7 +54,7 @@ App({
         method: "GET",
         data: {code: code},
         success(res){
-          if (res.data.code == 200) {
+          if (res.data.code === 200) {
             _this.globalData.session = res.data.session;
             try{
               wx.setStorageSync("session", res.data.session);
