@@ -15,7 +15,7 @@
         </view>
     </scroll-view>
 </view>
-<view style="float:left">
+<view style="float:left" wx-if="{{submenu.length > 0}}">
     <scroll-view
             scroll-y
             scroll-with-animation
