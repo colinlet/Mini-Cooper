@@ -38,7 +38,7 @@
         style="float:right"
         class="total {{active?'active':''}}"
         bindtap="payThis"
-    >结算({{total}})</view>
+    >总计({{total}})</view>
     <view
         style="float:right"
         class="sum"

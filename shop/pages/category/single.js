@@ -73,14 +73,7 @@ Page({
     });
   },
   buy: function(){
-    let img = this.data.goods.img + this.data.goods.showcase[0];
-    let params = 'id='+this.data.goods.id+
-        '&name='+this.data.goods.name+
-        '&img='+img+
-        '&price='+this.data.goods.price;
-    wx.navigateTo({
-        url: '/pages/cart/balance?'+params,
-    })
+    app.showContact();
   },
   goCart: function(){
     wx.switchTab({

@@ -39,12 +39,6 @@
       {
         "pagePath": "pages/cart",
         "text": "收藏夹",
-        "iconPath": "/static/img/cart_01.png",
-        "selectedIconPath": "/static/img/cart_02.png"
-      },
-      {
-        "pagePath": "pages/user/about",
-        "text": "关于",
         "iconPath": "/static/img/user_01.png",
         "selectedIconPath": "/static/img/user_02.png"
       }

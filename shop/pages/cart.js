@@ -59,10 +59,7 @@ Page({
     });
   },
   payThis: function(){
-    if (this.data.total < 1) return false;
-    wx.navigateTo({
-      url: '/pages/cart/balance',
-    })
+    app.showContact();
   },
 
   /**
