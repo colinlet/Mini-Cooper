@@ -64,7 +64,7 @@ Page({
         return false;
     }
     wx.showToast({
-        title: '成功加入购物车',
+        title: '成功加入收藏夹',
         duration: 2000
     });
     app.globalData.cartNum++;

@@ -40,6 +40,6 @@
         />
         <view wx:if="{{app.cartNum > 0}}" class="number">{{app.cartNum}}</view>
     </view>
-    <view style="float:left;" class="s" bindtap="addCart">加入购物车</view>
-    <view style="float:left;" class="t" bindtap="buy">立即购买</view>
+    <view style="float:left;" class="s" bindtap="addCart">加入收藏夹</view>
+    <view style="float:left;" class="t" bindtap="buy">了解更多</view>
 </view>
