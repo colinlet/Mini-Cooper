@@ -17,7 +17,7 @@
     </swiper-item>
   </block>
 </swiper>
-<view class="day">
+<view class="day" wx:if="{{goodsList.length > 0}}">
     <view class="title">每日精选</view>
     <view class="list">
         <view wx:for="{{goodsList}}" wx:key="">

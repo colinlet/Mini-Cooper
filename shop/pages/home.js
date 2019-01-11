@@ -67,6 +67,9 @@ Page({
                     page: _this.data.page + 1,
                 })
             }
+        },
+        fail(){
+            wx.stopPullDownRefresh();
         }
     });
   },
@@ -75,6 +78,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.startPullDownRefresh();
     this.getSlideshow();
     this.getList();
   },
