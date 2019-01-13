@@ -118,8 +118,6 @@ Page({
     this.setData({
         page: 1,
     });
-    this.getSlideshow();
-    this.getList();
   },
 
   /**
