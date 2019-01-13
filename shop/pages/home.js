@@ -39,6 +39,7 @@ Page({
                 _this.setData({
                     slideshow: res.data.list
                 });
+                app.globalData.contactInfo = res.data.contact;
             }
         }
     });
@@ -118,8 +119,6 @@ Page({
     this.setData({
         page: 1,
     });
-    this.getSlideshow();
-    this.getList();
   },
 
   /**

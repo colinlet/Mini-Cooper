@@ -19,12 +19,12 @@ App({
     this.globalData.cartNum = cartNum;
   },
   globalData: {
-    baseApi: "http://192.168.0.105:8080/api/v1/",
+    baseApi: "http://127.0.0.1:8080/api/v1/",
     cartList: [],
     cartNum: 0,
     session: "",
     userInfo: {},
-    contactInfo: "客服微信号: maplemark",
+    contactInfo: "",
   },
   checkAuth: function(){
     try{
@@ -68,6 +68,9 @@ App({
     })
   },
   showContact: function() {
+    if (this.globalData.contactInfo.length < 1){
+      return false;
+    }
     let _this = this;
     wx.showModal({
       title: "了解更多",
