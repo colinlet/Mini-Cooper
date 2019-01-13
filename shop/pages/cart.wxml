@@ -1,4 +1,3 @@
-<!--购物车-->
 <view class="empty" wx-if="{{app.cartNum < 1}}">
     <view class="img">
         <image src="../static/img/cart-empty.png" style="width:80px;height:80px;" />

@@ -3,15 +3,10 @@
     "pages/home",
     "pages/category",
     "pages/cart",
-    "pages/user",
     "pages/category/single",
     "pages/category/list",
-    "pages/cart/balance",
-    "pages/user/order",
-    "pages/user/address",
     "pages/user/contact",
-    "pages/user/about",
-    "pages/common/auth"
+    "pages/user/about"
   ],
   "window": {
     "backgroundTextStyle": "light",

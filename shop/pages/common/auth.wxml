@@ -1,2 +1,0 @@
-<!--pages/common/auth.wxml-->
-<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="setUserInfo">授权</button>
