@@ -6,6 +6,7 @@
                 <image
                 src="{{item.img}}"
                 style="width:100%"
+                lazy-load="true"
                 />
             </view>
             <view class="text">

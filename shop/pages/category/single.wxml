@@ -13,6 +13,7 @@
             model="aspectFit"
             style="width:100%;height:{{imageHeight}}px"
             bindload="imageLoad"
+            lazy-load="true"
         />
     </swiper-item>
   </block>
@@ -29,6 +30,7 @@
             style="width:{{images[index].width}}rpx;height:{{images[index].height}}rpx;"
             bindload="listLoad"
             data-id="{{index}}"
+            lazy-load="true"
         />
     </view>
 </view>
